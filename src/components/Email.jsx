@@ -1,13 +1,15 @@
 
-function Email({email, index, toggleRead, toggleStar}) {
+function Email({email, index, toggleRead, toggleStar, setChosenEmail, setIsClicked}) {
+
+    const onEmailClicked = () => {
+      setChosenEmail(email)
+      setIsClicked(true)
+    }
 
     // Display a single email
     return (
         <>
-        <li
-            key={index}
-            className={`email ${email.read ? 'read' : 'unread'}`}
-        >
+        <li key={index} className={`email ${email.read ? 'read' : 'unread'}`} onClick={onEmailClicked}>
             <div className="select">
             <input
                 className="select-checkbox"
