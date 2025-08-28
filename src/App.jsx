@@ -13,6 +13,8 @@ function App() {
     const [chosenEmail, setChosenEmail] = useState(null)
     const [isClicked, setIsClicked] = useState(false)
 
+    const [input, setInput] = useState("")
+
     let filteredEmails = emails
 
     const toggleStar = targetEmail => {
@@ -44,19 +46,21 @@ function App() {
       filteredEmails = getStarredEmails(filteredEmails)
       
     if (hideRead) filteredEmails = getReadEmails(filteredEmails)
+    
+    if (input !== "") filteredEmails = emails.filter(email => email.text.toLowerCase().includes(input.toLowerCase()) || email.title.toLowerCase().includes(input.toLowerCase()) || email.sender.toLowerCase().includes(input.toLowerCase()))
 
     
     if (isClicked) {
       return (
       <div className="app">
         <header className="header">
-          <Header/>
+          <Header input={input} setInput={setInput}/>
         </header>
         <nav className="left-menu">
           <LeftMenu currentTab={currentTab} setCurrentTab={setCurrentTab} unreadEmails={unreadEmails} starredEmails={starredEmails} hideRead={hideRead} setHideRead={setHideRead} setChosenEmail={setChosenEmail} setIsClicked={setIsClicked} />
         </nav>
         <main className="emails">
-          <DisplayEmail emailText={chosenEmail.title} setIsClicked={setIsClicked} />
+          <DisplayEmail emailText={chosenEmail.text} setIsClicked={setIsClicked} emailSender={chosenEmail.sender}/>
         </main>
           
       </div>
@@ -64,7 +68,7 @@ function App() {
       return (
       <div className="app">
         <header className="header">
-          <Header/>
+          <Header input={input} setInput={setInput}/>
         </header>
         <nav className="left-menu">
           <LeftMenu currentTab={currentTab} setCurrentTab={setCurrentTab} unreadEmails={unreadEmails} starredEmails={starredEmails} hideRead={hideRead} setHideRead={setHideRead} setIsClicked={setIsClicked} />

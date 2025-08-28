@@ -116,10 +116,6 @@
   text-overflow: ellipsis;
 }
 
-.email .textFieldEmails {
-  size: 100%;
-}
-
 .email .star-checkbox {
   appearance: none;
   position: relative;

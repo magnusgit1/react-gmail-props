@@ -1,5 +1,6 @@
+import SearchBar from "./SearchBar"
 
-function Header(){
+function Header({input, setInput}){
     return (
         <>
         <div className="left-menu">
@@ -12,10 +13,7 @@ function Header(){
             alt="gmail logo"
           />
         </div>
-
-        <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
-        </div>
+        <SearchBar input={input} setInput={setInput}/>
         </>
     )
 }

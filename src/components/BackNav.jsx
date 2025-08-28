@@ -7,7 +7,7 @@ function BackNav({setIsClicked}) {
     };
 
     return (
-    <button onClick={handleBackClick}>Go Back</button>
+    <button style={{width:40, height:20}} onClick={handleBackClick}>&larr;</button>
     );
 }
 
