@@ -9,7 +9,7 @@ function Email({email, index, toggleRead, toggleStar, setChosenEmail, setIsClick
     // Display a single email
     return (
         <>
-        <li key={index} className={`email ${email.read ? 'read' : 'unread'}`} onClick={onEmailClicked}>
+        <li key={index} className={`email ${email.read ? 'read' : 'unread'}`}>
             <div className="select">
             <input
                 className="select-checkbox"
@@ -26,8 +26,8 @@ function Email({email, index, toggleRead, toggleStar, setChosenEmail, setIsClick
                 onChange={() => toggleStar(email)}
             />
             </div>
-            <div className="sender">{email.sender}</div>
-            <div className="title">{email.title}</div>
+            <div className="sender" onClick={onEmailClicked}>{email.sender}</div>
+            <div className="title" onClick={onEmailClicked}>{email.title}</div>
         </li>
         </>
     )

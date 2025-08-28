@@ -55,7 +55,10 @@ function App() {
         <nav className="left-menu">
           <LeftMenu currentTab={currentTab} setCurrentTab={setCurrentTab} unreadEmails={unreadEmails} starredEmails={starredEmails} hideRead={hideRead} setHideRead={setHideRead} setChosenEmail={setChosenEmail} setIsClicked={setIsClicked} />
         </nav>
-          <DisplayEmail emailText={chosenEmail.title} />
+        <main className="emails">
+          <DisplayEmail emailText={chosenEmail.title} setIsClicked={setIsClicked} />
+        </main>
+          
       </div>
     )} else {
       return (
